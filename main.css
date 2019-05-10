@@ -1,0 +1,45 @@
+@import url("reset.css");
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1A1C22;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  text-align: center;
+  padding: 1em;
+  margin: 20px;
+  color: #FFF;
+  font-family: "Oswald", sans-serif;
+  max-width: 70vw;
+  font-size: 10vmin;
+  text-decoration: none;
+  background-color: #343A40;
+}
+
+@media screen and (min-width: 1137px) {
+  body {
+    flex-direction: row;
+  }
+
+  .link {
+    will-change: transform;
+    transition: 0.2s ease-out;
+    font-size: 3em;
+  }
+
+  .link:hover {
+    transform: translate(5px, -5px);
+    background-color: #5f6a75;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .link {
+    font-size: 5em;
+  }
+}

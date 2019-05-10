@@ -1,0 +1,91 @@
+@import url("../reset.css");
+body {
+  min-height: 100vh;
+  display: grid;
+  /* Dałem 193px, ponieważ nie byłem pewien czy do minimalnej wysokości content+sidebar należy doliczyć odstęp miedzy nimi, więc zostawiłem wolne 15 px własnie na ten odstęp. */
+  grid-template: "header" 100px
+                 "sidebar" minmax(193px, 1fr)
+                 "section" minmax(193px, 1fr)
+                 "footer" 100px / 1fr;
+  grid-gap: 15px;
+}
+
+.section {
+  grid-area: section;
+  display: grid;
+  grid-template: "content1"
+                 "content2"
+                 "content3"
+                 "content4"
+                 "content5"
+                 "content6";
+  grid-gap: 15px;
+}
+
+.header, .footer {
+  background-color: #1A1C22;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.header {
+  grid-area: header;
+  position: fixed;
+  width: 100%;
+  height: 100px;
+}
+
+.sidebar {
+  background-color: #6C757D;
+  grid-area: sidebar;
+}
+
+.section__content {
+  background-color: #343A40;
+}
+
+.section__content--area1 {grid-area: content1;}
+.section__content--area2 {grid-area: content2;}
+.section__content--area3 {grid-area: content3;}
+.section__content--area4 {grid-area: content4;}
+.section__content--area5 {grid-area: content5;}
+.section__content--area6 {grid-area: content6;}
+
+@media  screen and (min-width: 600px) and (max-width:899px) {
+
+  .section {
+    grid-template: "content1 content2" 1fr
+                   "content3 content4" 1fr
+                   "content5 content6" 1fr/ 1fr 1fr
+  }
+
+}
+
+@media screen and (min-width: 900px) and (max-width: 1199px){
+  body {
+    grid-template: "header header header header" 100px
+                   "sidebar section section section" minmax(193px, 1fr)
+                   "sidebar section section section" minmax(193px, 1fr)
+                   "footer footer footer footer" 100px  / 400px 1fr 1fr 1fr;
+  }
+  .section {
+    grid-template: "content1 content2"
+                   "content3 content4"
+                   "content5 content6";
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    grid-template: "header header header header" 100px
+                   "sidebar section section section" minmax(193px, 1fr)
+                   "sidebar section section section" minmax(193px, 1fr)
+                   "footer footer footer footer" 100px  / 400px 1fr 1fr 1fr;
+  }
+  .section {
+    grid-template: "content1 content2 content3"
+                   "content4 content5 content6";
+  }
+}
